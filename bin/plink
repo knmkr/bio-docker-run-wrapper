@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# https://bioconda.github.io/recipes/plink/README.html
+docker run -it --rm \
+  -v $(pwd):/workdir -w /workdir \
+  quay.io/biocontainers/plink:1.90b6.12--heea4ae3_1 plink "$@"
