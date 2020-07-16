@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html
+# https://hub.docker.com/r/jupyter/r-notebook/tags/
+docker run -it --rm \
+  -v "$PWD":/workdir -w /workdir \
+  jupyter/r-notebook:ea01ec4d9f57 R "$@"
