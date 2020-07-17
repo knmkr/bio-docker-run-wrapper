@@ -2,5 +2,9 @@
 
 # https://bioconda.github.io/recipes/htslib/README.html
 docker run -it --rm \
-  -v "$PWD":/workdir -w /workdir \
+  -u $(id -u):$(id -g) \
+  -e HOME=$HOME \
+  -e USER=$USER \
+  -v $HOME:$HOME \
+  -w $PWD \
   quay.io/biocontainers/htslib:1.10.2--hd3b49d5_1 bgzip "$@"

@@ -2,5 +2,9 @@
 
 # https://bioconda.github.io/recipes/bcftools/README.html
 docker run -it --rm \
-  -v "$PWD":/workdir -w /workdir \
+  -u $(id -u):$(id -g) \
+  -e HOME=$HOME \
+  -e USER=$USER \
+  -v $HOME:$HOME \
+  -w $PWD \
   quay.io/biocontainers/bcftools:1.10.2--h4f4756c_2 bcftools "$@"
