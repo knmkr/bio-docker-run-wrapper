@@ -7,5 +7,5 @@ docker run -it --rm \
   -e HOME=$HOME \
   -e USER=$USER \
   -v $HOME:$HOME \
-  -w $PWD \
+  -w "$PWD" \
   jupyter/scipy-notebook:ea01ec4d9f57 python "$@"

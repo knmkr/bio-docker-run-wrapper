@@ -6,5 +6,5 @@ docker run -it --rm \
   -e HOME=$HOME \
   -e USER=$USER \
   -v $HOME:$HOME \
-  -w $PWD \
+  -w "$PWD" \
   quay.io/biocontainers/htslib:1.10.2--hd3b49d5_1 bgzip "$@"
