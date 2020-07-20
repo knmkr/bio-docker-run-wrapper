@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html
+# https://hub.docker.com/r/jupyter/datascience-notebook/tags
+docker run -it --rm \
+  -u $(id -u):$(id -g) \
+  -e HOME=$HOME \
+  -e USER=$USER \
+  -v $HOME:$HOME \
+  -w "$PWD" \
+  -p 8888:8888 \
+  -p 8080:8080 \
+  -p 8081:8081 \
+  -p 8082:8082 \
+  jupyter/datascience-notebook:ea01ec4d9f57 start.sh jupyter "$@"
