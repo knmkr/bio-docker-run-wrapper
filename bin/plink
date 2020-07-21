@@ -1,10 +1,19 @@
 #!/bin/bash
 
+if [ -w /var/run/docker.sock ]; then
+  # rootful docker
+  CONTAINER_USER=$(id -u):$(id -g)
+else
+  # rootless docker
+  CONTAINER_USER=root
+fi
+
 # https://bioconda.github.io/recipes/plink/README.html
 docker run -it --rm \
-  -u $(id -u):$(id -g) \
+  -u $CONTAINER_USER \
   -e HOME=$HOME \
   -e USER=$USER \
   -v $HOME:$HOME \
   -w "$PWD" \
   quay.io/biocontainers/plink:1.90b6.12--heea4ae3_1 plink "$@"
+

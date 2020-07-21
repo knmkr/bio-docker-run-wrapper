@@ -1,0 +1,9 @@
+R	jupyter/r-notebook	ea01ec4d9f57	R	https://hub.docker.com/r/jupyter/r-notebook/tags/
+Rscript	jupyter/r-notebook	ea01ec4d9f57	Rscript	https://hub.docker.com/r/jupyter/r-notebook/tags/
+bcftools	quay.io/biocontainers/bcftools	1.10.2--h4f4756c_2	bcftools	https://bioconda.github.io/recipes/bcftools/README.html
+bgzip	quay.io/biocontainers/htslib	1.10.2--hd3b49d5_1	bgzip	https://bioconda.github.io/recipes/htslib/README.html
+htsfile	quay.io/biocontainers/htslib	1.10.2--hd3b49d5_1	htsfile	https://bioconda.github.io/recipes/htslib/README.html
+jupyter	jupyter/datascience-notebook	ea01ec4d9f57	start.sh jupyter	https://bioconda.github.io/recipes/htslib/README.html
+plink	quay.io/biocontainers/plink	1.90b6.12--heea4ae3_1	plink	https://bioconda.github.io/recipes/plink/README.html
+python	jupyter/scipy-notebook	ea01ec4d9f57	python	https://hub.docker.com/r/jupyter/scipy-notebook/tags/
+tabix	quay.io/biocontainers/htslib	1.10.2--hd3b49d5_1	tabix	https://bioconda.github.io/recipes/htslib/README.html

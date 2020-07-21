@@ -1,10 +1,19 @@
 #!/bin/bash
 
+if [ -w /var/run/docker.sock ]; then
+  # rootful docker
+  CONTAINER_USER=$(id -u):$(id -g)
+else
+  # rootless docker
+  CONTAINER_USER=root
+fi
+
 # https://bioconda.github.io/recipes/htslib/README.html
 docker run -it --rm \
-  -u $(id -u):$(id -g) \
+  -u $CONTAINER_USER \
   -e HOME=$HOME \
   -e USER=$USER \
   -v $HOME:$HOME \
   -w "$PWD" \
   quay.io/biocontainers/htslib:1.10.2--hd3b49d5_1 tabix "$@"
+

@@ -1,9 +1,16 @@
 #!/bin/bash
 
-# https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html
-# https://hub.docker.com/r/jupyter/datascience-notebook/tags
+if [ -w /var/run/docker.sock ]; then
+  # rootful docker
+  CONTAINER_USER=$(id -u):$(id -g)
+else
+  # rootless docker
+  CONTAINER_USER=root
+fi
+
+# https://bioconda.github.io/recipes/htslib/README.html
 docker run -it --rm \
-  -u $(id -u):$(id -g) \
+  -u $CONTAINER_USER \
   -e HOME=$HOME \
   -e USER=$USER \
   -v $HOME:$HOME \
@@ -13,3 +20,4 @@ docker run -it --rm \
   -p 8081:8081 \
   -p 8082:8082 \
   jupyter/datascience-notebook:ea01ec4d9f57 start.sh jupyter "$@"
+

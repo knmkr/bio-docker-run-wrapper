@@ -1,11 +1,19 @@
 #!/bin/bash
 
-# https://jupyter-docker-stacks.readthedocs.io/en/latest/using/selecting.html
+if [ -w /var/run/docker.sock ]; then
+  # rootful docker
+  CONTAINER_USER=$(id -u):$(id -g)
+else
+  # rootless docker
+  CONTAINER_USER=root
+fi
+
 # https://hub.docker.com/r/jupyter/r-notebook/tags/
 docker run -it --rm \
-  -u $(id -u):$(id -g) \
+  -u $CONTAINER_USER \
   -e HOME=$HOME \
   -e USER=$USER \
   -v $HOME:$HOME \
   -w "$PWD" \
   jupyter/r-notebook:ea01ec4d9f57 R "$@"
+
