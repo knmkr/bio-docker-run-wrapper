@@ -1,3 +1,4 @@
+#name	image	tag	cmd	ref
 R	jupyter/r-notebook	ea01ec4d9f57	R	https://hub.docker.com/r/jupyter/r-notebook/tags/
 Rscript	jupyter/r-notebook	ea01ec4d9f57	Rscript	https://hub.docker.com/r/jupyter/r-notebook/tags/
 bcftools	quay.io/biocontainers/bcftools	1.10.2--h4f4756c_2	bcftools	https://bioconda.github.io/recipes/bcftools/README.html

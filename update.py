@@ -9,6 +9,9 @@ import textwrap
 def _main():
     with open('commands.tsv', 'r') as fin:
         for line in fin:
+            if line.startswith('#'):
+                continue
+
             name, image, tag, cmd, ref = line.strip().split('\t')
 
             options = {
